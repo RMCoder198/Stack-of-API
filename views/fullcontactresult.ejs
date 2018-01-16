@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include  header%>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="masthead" style="background-image: url('assets/image/fullcontact.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="container" >
+           <div id="input" >
+             <form action="/email" method="post">
+               <label>Email :</label>
+               <input type="email"name="email" autofocus>
+               <input type="submit">
+             </form>
+           </div>
+        <div  class="row">
+      <div class="col-6 col-sm-2" >
+  <% if(data["photos"]){%>
+  <img src=" <%= data["photos"][0]["url"]%>"height="100" width="100"></img>
+  <%}%>
+</div>
+<div class="col-6 col-md-10">
+ <p>
+  <%if(data["contactInfo"]){%>
+  <strong> Full name:</strong><%= data["contactInfo"]["fullName"]%>
+  <%}%>
+ </p>
+ <p>
+  <%if(data["demographics"]){%>
+  <%  if(data["demographics"]["gender"]){%>
+   <strong>Gender:</strong><%= data["demographics"]["gender"]%>
+  <%}%>
+ </p>
+<div><%if(data["demographics"]["locationGeneral"]){%>
+     <p><strong>Location:</strong> <%= data["demographics"]["locationGeneral"]%></p>
+     <%}%>
+<%}%>
+</div>
+<%if(data["contactInfo"]){%>
+<div><%if(data["contactInfo"]["chats"]){%>
+ <strong>Contact:</strong>
+      <ul>
+        <%   for(let a of data["contactInfo"]["chats"]){%>
+
+       <li><%= a["client"].toUpperCase() ;%>
+      : <%=a["handle"];%></li>
+       <%}}%>
+       </ul>
+</div>
+<div><%if(data["contactInfo"]["websites"]){%>
+  <strong>Websites:</strong>
+        <ul>
+        <%   for(let a of data["contactInfo"]["websites"]){%>
+         <li><%= a["url"];%></li>
+         <%}}%>
+        </ul>
+  <%}%>
+<div><%if(data["organizations"]){%>
+  <strong>Organizations</strong>
+      <ul>
+        <%   for(let a of data["organizations"]){%>
+        <li>  <%= a["name"];%></li>
+        <%}}%>
+       </ul>
+       </div>
+<div>
+  <%if(data["socialProfiles"]){%>
+  <strong>SocialProfiles</strong>
+  <%   for(let a of data["socialProfiles"]){%>
+
+    <ul>
+      <li><strong>Name:</strong> <%= a["type"];%>
+          <br><strong>Handle url:</strong> <%=a["url"]%>
+      </li>
+    </ul>
+  <%}}%>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

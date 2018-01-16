@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include  header%>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead" style="background-image: url('assets/image/fullcontact.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<div class="container">
+<div class="row">
+<div class="col-6 col-sm-4">
+  <p>
+    Enter desired Email address to get the details of that person.
+  </p>
+  <form action="/email" method="post">
+  <label>Email :</label>
+     <input type="email" name="email" autofocus>
+     <input type="submit">
+  </form>
+<div class="detail">
+  <p>It uses fullcontact api to get the details of a person from email address .
+    For example you can use email address  bart@fullcontact.com .
+  </p>
+  <p>For any info regarding to fullcontact api
+      <a href="https://www.fullcontact.com/">Click here</a>
+  </p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
