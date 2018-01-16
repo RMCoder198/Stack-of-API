@@ -16,7 +16,7 @@ app.get('/',function(req,res){
 
 app.get('/fullcontact',function(req,res){
   res.render('fullcontact');
-})
+});
 
 app.post('/email', function(req, res) {
     var user_email = req.body.email;
